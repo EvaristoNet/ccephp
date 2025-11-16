@@ -1,0 +1,580 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ffffff 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+main {
+    padding: 40px;
+}
+
+.planos-section h2,
+.checkout-section h2,
+.doacao-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #1e3c72;
+    text-align: center;
+}
+
+.planos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.plano-card {
+    background: white;
+    border: 4px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.plano-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+/* Plano 30 Dias - Vermelho */
+.plano-vermelho {
+    border-color: #e74c3c;
+}
+
+.plano-vermelho::before {
+    background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.plano-vermelho:hover {
+    border-color: #e74c3c;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+}
+
+.plano-vermelho .moeda,
+.plano-vermelho .valor {
+    color: #e74c3c;
+}
+
+.plano-vermelho .btn-selecionar {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.plano-vermelho .btn-selecionar:hover {
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Plano 3 Meses - Amarelo */
+.plano-amarelo {
+    border-color: #f39c12;
+}
+
+.plano-amarelo::before {
+    background: linear-gradient(90deg, #f39c12 0%, #e67e22 100%);
+}
+
+.plano-amarelo:hover {
+    border-color: #f39c12;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+}
+
+.plano-amarelo .moeda,
+.plano-amarelo .valor {
+    color: #f39c12;
+}
+
+.plano-amarelo .btn-selecionar {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.plano-amarelo .btn-selecionar:hover {
+    box-shadow: 0 5px 20px rgba(243, 156, 18, 0.4);
+}
+
+/* Plano 6 Meses - Verde */
+.plano-verde {
+    border-color: #27ae60;
+}
+
+.plano-verde::before {
+    background: linear-gradient(90deg, #27ae60 0%, #229954 100%);
+}
+
+.plano-verde:hover {
+    border-color: #27ae60;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4);
+}
+
+.plano-verde .moeda,
+.plano-verde .valor {
+    color: #27ae60;
+}
+
+.plano-verde .btn-selecionar {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.plano-verde .btn-selecionar:hover {
+    box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4);
+}
+
+/* Plano 9 Meses - Laranja */
+.plano-laranja {
+    border-color: #e67e22;
+}
+
+.plano-laranja::before {
+    background: linear-gradient(90deg, #e67e22 0%, #d35400 100%);
+}
+
+.plano-laranja:hover {
+    border-color: #e67e22;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
+}
+
+.plano-laranja .moeda,
+.plano-laranja .valor {
+    color: #e67e22;
+}
+
+.plano-laranja .btn-selecionar {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+.plano-laranja .btn-selecionar:hover {
+    box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
+}
+
+/* Plano 12 Meses - Azul */
+.plano-azul {
+    border-color: #3498db;
+}
+
+.plano-azul::before {
+    background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+}
+
+.plano-azul:hover {
+    border-color: #3498db;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.4);
+}
+
+.plano-azul .moeda,
+.plano-azul .valor {
+    color: #3498db;
+}
+
+.plano-azul .btn-selecionar {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.plano-azul .btn-selecionar:hover {
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+.plano-header h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.duracao {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.plano-valor {
+    margin: 20px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+}
+
+.moeda {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.valor {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.btn-selecionar {
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.btn-pagar,
+.btn-doacao {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-selecionar:hover {
+    transform: scale(1.05);
+}
+
+.btn-pagar:hover,
+.btn-doacao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(30, 60, 114, 0.4);
+}
+
+.btn-voltar {
+    background: #ccc;
+    color: #333;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: #bbb;
+}
+
+.checkout-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.plano-info {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 20px;
+}
+
+.plano-beneficios {
+    margin: 25px 0;
+    text-align: left;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.beneficio-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.beneficio-icon {
+    font-size: 1.5em;
+    margin-right: 12px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.beneficio-texto {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.4;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2a5298;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.valor-parcela {
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2e7d32;
+    text-align: center;
+}
+
+.doacao-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, #f9f9f9 0%, #e8f4f8 100%);
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #2a5298;
+}
+
+.doacao-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.doacao-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.doacao-descricao {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.doacao-descricao strong {
+    color: #1e3c72;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.sucesso-box,
+.erro-box {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 60px;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.sucesso-icon {
+    width: 100px;
+    height: 100px;
+    background: #4caf50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    margin: 0 auto 30px;
+}
+
+.erro-icon {
+    width: 100px;
+    height: 100px;
+    background: #f44336;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    margin: 0 auto 30px;
+}
+
+.sucesso-box h1,
+.erro-box h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.payment-id {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.codigo-erro {
+    color: #f44336;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    .planos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+}
+
+

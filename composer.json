@@ -1,0 +1,7 @@
+{
+    "name": "novoprojeto/projeto",
+    "description": "",
+    "require": {
+        "cieloecommerce/cielo-ecommerce": "*"
+    }
+}
