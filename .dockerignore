@@ -1,0 +1,7 @@
+.git
+.gitignore
+composer.phar
+composer (1).phar
+fly.toml
+node_modules
+vendor

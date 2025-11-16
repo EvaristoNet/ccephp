@@ -4,11 +4,11 @@
  */
 
 // Credenciais da Cielo E-commerce
-define('CIELO_MERCHANT_ID', 'ab793efc-3fca-422e-b799-ce2dae1a61cf');
-define('CIELO_MERCHANT_KEY', 'ShZShjv9PqrOFz8FO1IWEj645X5cDkhQRs8wyqlk');
+define('CIELO_MERCHANT_ID', getenv('CIELO_MERCHANT_ID') ?: '');
+define('CIELO_MERCHANT_KEY', getenv('CIELO_MERCHANT_KEY') ?: '');
 
 // Ambiente (true = produção, false = sandbox)
-define('CIELO_ENVIRONMENT', true); // Use false para testes, true para produção
+define('CIELO_ENVIRONMENT', strtolower(getenv('CIELO_ENVIRONMENT') ?: '') === 'production');
 
 // URL da API Cielo
 define('CIELO_API_URL', CIELO_ENVIRONMENT 
